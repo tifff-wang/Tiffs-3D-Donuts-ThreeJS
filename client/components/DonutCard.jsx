@@ -1,28 +1,24 @@
-import { Canvas } from "@react-three/fiber";
-import SavedDonuts from "../components/SavedDonuts";
-import { OrbitControls } from "@react-three/drei";
-import { delDonut } from "../api/apiClient";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useAuth0 } from "@auth0/auth0-react";
+import { Canvas } from '@react-three/fiber'
+import SavedDonuts from '../components/SavedDonuts'
+import { OrbitControls } from '@react-three/drei'
+import { delDonut } from '../api/apiClient'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 function DonutCard({ donut }) {
-  const { getAccessTokenSilently } = useAuth0();
-  const queryClient = useQueryClient();
+  const queryClient = useQueryClient()
 
   const delMutation = useMutation({
     mutationFn: async ({ id, token }) => delDonut(id, token),
     onSuccess: () => {
-      queryClient.invalidateQueries(["donutList"]);
+      queryClient.invalidateQueries(['donutList'])
     },
-  });
+  })
 
   // delete
   async function handleDelete(event, id) {
-    const token = await getAccessTokenSilently();
-    event.preventDefault();
-    console.log(donut.id);
-    console.log(token);
-    delMutation.mutate({ id, token });
+    event.preventDefault()
+    console.log(donut.id)
+    delMutation.mutate({ id })
   }
 
   return (
@@ -40,8 +36,8 @@ function DonutCard({ donut }) {
             position: [3, 3, 5],
           }}
           style={{
-            background: "rgb(249, 249, 249)",
-            borderRadius: "0px 80px 80px 0px",
+            background: 'rgb(249, 249, 249)',
+            borderRadius: '0px 80px 80px 0px',
           }}
         >
           <OrbitControls enableZoom={false} />
@@ -72,7 +68,7 @@ function DonutCard({ donut }) {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default DonutCard;
+export default DonutCard

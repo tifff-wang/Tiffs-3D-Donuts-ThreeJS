@@ -1,4 +1,4 @@
-import { useAuth0 } from '@auth0/auth0-react'
+
 import { Link } from 'react-router-dom'
 // import { Auth } from 'aws-amplify/auth'
 import { signOut, getCurrentUser } from 'aws-amplify/auth'

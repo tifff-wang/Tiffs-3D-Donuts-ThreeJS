@@ -10,7 +10,6 @@ import {
 } from 'react-router-dom'
 import Donut from './pages/Donut.jsx'
 import DonutList from './pages/DonutList.jsx'
-import { Auth0Provider } from '@auth0/auth0-react'
 import Authentication from './pages/Authentication.jsx'
 
 export const routes = createRoutesFromElements(
@@ -24,14 +23,7 @@ export const routes = createRoutesFromElements(
 const router = createBrowserRouter(routes)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <Auth0Provider
-    domain="mako-2023-tiffany.au.auth0.com"
-    clientId="GLOmMtLCELDxJb4Mu5RRKJMkmRBMs2fo"
-    audience="https://donuts/api"
-    redirectUri={window.location.origin}
-  >
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </Auth0Provider>
+  <React.StrictMode>
+    <RouterProvider router={router} />
+  </React.StrictMode>
 )

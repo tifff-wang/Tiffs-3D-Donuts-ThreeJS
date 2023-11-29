@@ -15,7 +15,7 @@ Whether you're a donut enthusiast or just looking for a fun and creative way to 
  - React (Vite)
  - React Router
  - ThreeJS / React Three Fiber / Drei
- - Auth0
+ - Authentication- AWS Amplify Cognito
  - SuperAgent
  - Vitest
  - PlayWright

@@ -1,29 +1,22 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { useQuery } from "@tanstack/react-query";
-import DonutCard from "../components/DonutCard";
-import { fetchDonuts } from "../api/apiClient";
-import { Navigate } from "react-router-dom";
-import { Player } from "@lottiefiles/react-lottie-player";
-import Nav from "../components/Nav";
+import { useQuery } from '@tanstack/react-query'
+import DonutCard from '../components/DonutCard'
+import { fetchDonuts } from '../api/apiClient'
+import { Navigate } from 'react-router-dom'
+import { Player } from '@lottiefiles/react-lottie-player'
+import Nav from '../components/Nav'
 export default function DonutList() {
-  const {
-    getAccessTokenSilently,
-    isAuthenticated,
-    isLoading: isLoadingAuth,
-  } = useAuth0();
   const {
     data: donuts,
     isLoading,
     isError,
-  } = useQuery(["donutList"], async () => {
-    const token = await getAccessTokenSilently();
-    return fetchDonuts({ token });
-  });
+  } = useQuery(['donutList'], async () => {
+    return fetchDonuts()
+  })
 
-  if (!isAuthenticated && !isLoadingAuth) return <Navigate to={"/"} />;
+  if (!isAuthenticated) return <Navigate to={'/auth'} />
 
   if (isError) {
-    return <p>Something went wrong!</p>;
+    return <p>Something went wrong!</p>
   }
 
   if (isLoading) {
@@ -33,9 +26,9 @@ export default function DonutList() {
         className="player"
         loop
         autoplay
-        style={{ height: "500px", width: "500px" }}
+        style={{ height: '500px', width: '500px' }}
       />
-    );
+    )
   }
 
   return (
@@ -60,5 +53,5 @@ export default function DonutList() {
         </div>
       </div>
     </>
-  );
+  )
 }

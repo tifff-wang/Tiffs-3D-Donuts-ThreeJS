@@ -6,7 +6,6 @@ import { useRef, useState, useEffect } from 'react'
 import Footer from './Footer'
 import { fetchBase, fetchGlaze } from '../api/apiClient.ts'
 import { useSearchParams } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
 import SaveButton from './SaveButton'
 import Nav from './Nav'
 
@@ -24,7 +23,7 @@ const defaultGlaze = {
 }
 
 function Interfaces(props) {
-  const { isAuthenticated, loginWithRedirect } = useAuth0()
+ 
   const heroRef = useRef(null)
   const detailRef = useRef(null)
   const { updateGlaze, updateBase, updateTexture } = props
@@ -101,7 +100,7 @@ function Interfaces(props) {
   }
 
   function handleLogin() {
-    loginWithRedirect({ redirectUri: `${window.location.origin}` })
+    
   }
 
   return (

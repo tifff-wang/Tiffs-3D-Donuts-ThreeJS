@@ -1,7 +1,8 @@
 import express from "express";
 import * as db from "../db/donuts-db";
-import checkJwt, { JwtRequest } from "../auth0";
+// import checkJwt, { JwtRequest } from "../auth0";
 import errors from "../lib/errors";
+import { verifyToken } from "../auth0";
 
 const router = express.Router();
 
@@ -54,9 +55,9 @@ router.get("/glazes/:id", async (req, res) => {
   }
 });
 
-router.get("/me", checkJwt, async (req: JwtRequest, res) => {
+router.get("/me", verifyToken, async (req, res) => {
   try {
-    const userId = req.auth?.sub;
+    const userId = req.user.sub;
     if (!userId) return errors.unauthorizedError(req, res, "Unauthorized");
 
     const donuts = (await db.getDonuts(userId))?.map((donut) => ({
