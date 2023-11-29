@@ -1,15 +1,33 @@
 import { useAuth0 } from '@auth0/auth0-react'
 import { Link } from 'react-router-dom'
+// import { Auth } from 'aws-amplify/auth'
+import { signOut, getCurrentUser } from 'aws-amplify/auth'
+
+import { useState, useEffect } from 'react'
 
 export default function Nav() {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
+  const [isAuthenticated, setIsAuthenticated] = useState()
 
-  function handleLogin() {
-    loginWithRedirect({ redirectUri: `${window.location.origin}` })
+  useEffect(() => {
+    checkAuthentication()
+  }, [])
+
+  async function checkAuthentication() {
+    try {
+      await getCurrentUser()
+      setIsAuthenticated(true)
+    } catch (error) {
+      setIsAuthenticated(false)
+    }
   }
 
-  function handleLogout() {
-    logout({ returnTo: `${window.location.origin}` })
+  async function handleLogout() {
+    try {
+      await signOut()
+      setIsAuthenticated(false)
+    } catch (error) {
+      console.log('error signing out: ', error)
+    }
   }
 
   return (
@@ -31,12 +49,11 @@ export default function Nav() {
         </div>
 
         {!isAuthenticated ? (
-          <button
-            className=" mr-8 text-[#E96B5E]  hover:underline text-xl nav"
-            onClick={handleLogin}
-          >
-            Login
-          </button>
+          <Link to="/auth">
+            <button className=" mr-8 text-[#E96B5E]  hover:underline text-xl nav">
+              Login
+            </button>
+          </Link>
         ) : (
           <div className="flex items-center">
             <Link to="/me">

@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-tiffsdonuts-dev-214328-authRole",
+      "UnauthRoleArn": "arn:aws:iam::691784454033:role/amplify-tiffsdonuts-dev-214328-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::691784454033:role/amplify-tiffsdonuts-dev-214328-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-tiffsdonuts-dev-214328-deployment",
+      "UnauthRoleName": "amplify-tiffsdonuts-dev-214328-unauthRole",
+      "StackName": "amplify-tiffsdonuts-dev-214328",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:691784454033:stack/amplify-tiffsdonuts-dev-214328/5f19ff20-8e93-11ee-89c3-02dc5068224d",
+      "AmplifyAppId": "d2ceolts1gy2x8"
+    },
+    "categories": {
+      "auth": {
+        "tiffsdonuts25426701": {}
+      }
+    }
+  }
+}

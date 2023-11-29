@@ -6,7 +6,7 @@ import jwks from 'jwks-rsa'
 
 // TODO: set the domain and audience (API Identifier)
 const domain = 'https://mako-2023-tiffany.au.auth0.com'
-const audience = 'https://tiffsdonuts/api'
+const audience = 'https://donuts/api'
 
 const checkJwt = jwt({
   secret: jwks.expressJwtSecret({
