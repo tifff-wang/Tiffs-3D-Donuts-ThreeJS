@@ -1,20 +1,20 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
+import { useAuth0 } from '@auth0/auth0-react'
+import { Link } from 'react-router-dom'
 
 export default function Nav() {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0()
 
   function handleLogin() {
-    loginWithRedirect({ redirectUri: `${window.location.origin}` });
+    loginWithRedirect({ redirectUri: `${window.location.origin}` })
   }
 
   function handleLogout() {
-    logout({ returnTo: `${window.location.origin}` });
+    logout({ returnTo: `${window.location.origin}` })
   }
 
   return (
     <>
-      <nav className="fixed top-0 mx-auto w-full h-13 flex justify-between items-center bg-[#f5f5f5] z-10">
+      <nav className="fixed top-0 mx-auto w-full h-13 flex justify-between bg-[#FFFBF5] z-10">
         <div className="flex items-center">
           <Link to="/">
             <img
@@ -24,13 +24,15 @@ export default function Nav() {
             />
           </Link>
           <Link to="/">
-            <button className="ml-1 text-2xl hover:underline nav">Home</button>
+            <button className="ml-1 text-2xl hover:underline nav">
+              Tiff&apos;s Donuts
+            </button>
           </Link>
         </div>
 
         {!isAuthenticated ? (
           <button
-            className="mt-3 px-3 py-2 bg-[#CC3968]  hover:bg-red-400 rounded-full text-white mr-8 text-2xl nav"
+            className=" mr-8 text-[#E96B5E]  hover:underline text-xl nav"
             onClick={handleLogin}
           >
             Login
@@ -52,5 +54,5 @@ export default function Nav() {
         )}
       </nav>
     </>
-  );
+  )
 }
