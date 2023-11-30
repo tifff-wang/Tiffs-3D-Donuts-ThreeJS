@@ -3,6 +3,7 @@ import SavedDonuts from '../components/SavedDonuts'
 import { OrbitControls } from '@react-three/drei'
 import { delDonut } from '../api/apiClient'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { fetchAuthSession } from 'aws-amplify/auth'
 
 function DonutCard({ donut }) {
   const queryClient = useQueryClient()
@@ -16,9 +17,11 @@ function DonutCard({ donut }) {
 
   // delete
   async function handleDelete(event, id) {
+    const session = await fetchAuthSession()
+    const token = session.tokens.idToken.toString()
     event.preventDefault()
     console.log(donut.id)
-    delMutation.mutate({ id })
+    delMutation.mutate({ id, token })
   }
 
   return (

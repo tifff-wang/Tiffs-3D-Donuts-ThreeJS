@@ -1,6 +1,7 @@
 import { saveDonut } from '../api/apiClient'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
+import { fetchAuthSession } from 'aws-amplify/auth'
 
 export default function SaveButton(props) {
   const [isSuccessVisible, setIsSuccessVisible] = useState(false)
@@ -13,10 +14,13 @@ export default function SaveButton(props) {
   })
 
   async function handleSave() {
+    const session = await fetchAuthSession()
+
     const donut = {
       glaze: props.selectedGlaze.id,
       base: props.selectedBase.id,
       gold: props.withGold,
+      token: session.tokens.idToken.toString(),
     }
     saveDonutMutation.mutate(donut)
     setIsSuccessVisible(true)
