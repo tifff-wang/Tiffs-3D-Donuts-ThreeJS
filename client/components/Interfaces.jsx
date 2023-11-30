@@ -191,7 +191,7 @@ function Interfaces(props) {
               className="mt-3 mr-3 p-3 text-xl  text-white bg-[#E96B5E] hover:bg-[#e1796d] rounded-full"
               onClick={(e) => handleScroll(e, heroRef)}
             >
-              Back to donut
+              Make another one
             </button>
             {isAuthenticated ? (
               <SaveButton

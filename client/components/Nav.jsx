@@ -16,7 +16,7 @@ export default function Nav(props) {
 
   return (
     <>
-      <nav className="fixed top-0 mx-auto w-full h-13 flex justify-between bg-[#FFFBF5] z-10">
+      <nav className="fixed top-0 mx-auto w-full h-13 flex justify-between items-center bg-[#FFFBF5] z-10">
         <div className="flex items-center">
           <Link to="/">
             <img
@@ -34,19 +34,19 @@ export default function Nav(props) {
 
         {!isAuthenticated ? (
           <Link to="/auth">
-            <button className=" mr-8 text-[#E96B5E]  hover:underline text-xl nav">
+            <button className="mr-11 text-[#E96B5E]  hover:underline text-xl nav">
               Login
             </button>
           </Link>
         ) : (
           <div className="flex items-center">
             <Link to="/me">
-              <button className="mr-5 text-2xl hover:underline nav">
+              <button className="mr-11 text-[#444140]  hover:underline text-xl nav">
                 View your donuts
               </button>
             </Link>
             <button
-              className=" px-3 py-2 bg-[#b6b6b6]  hover:bg-sky-300 rounded-full text-white mr-20 text-2xl nav"
+              className="mr-11 text-[#f0a122]  hover:underline text-xl nav"
               onClick={handleLogout}
             >
               Logout
