@@ -1,6 +1,5 @@
 import express from 'express'
 import * as db from '../db/donuts-db'
-// import checkJwt, { JwtRequest } from "../auth0";
 import errors from '../lib/errors'
 import verifyToken from '../auth0'
 
