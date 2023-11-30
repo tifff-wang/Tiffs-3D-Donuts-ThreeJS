@@ -1,30 +1,14 @@
-
 import { Link } from 'react-router-dom'
 // import { Auth } from 'aws-amplify/auth'
-import { signOut, getCurrentUser } from 'aws-amplify/auth'
+import { signOut } from 'aws-amplify/auth'
 
-import { useState, useEffect } from 'react'
-
-export default function Nav() {
-  const [isAuthenticated, setIsAuthenticated] = useState()
-
-  useEffect(() => {
-    checkAuthentication()
-  }, [])
-
-  async function checkAuthentication() {
-    try {
-      await getCurrentUser()
-      setIsAuthenticated(true)
-    } catch (error) {
-      setIsAuthenticated(false)
-    }
-  }
+export default function Nav(props) {
+  const { isAuthenticated, updateAuthentication } = props
 
   async function handleLogout() {
     try {
       await signOut()
-      setIsAuthenticated(false)
+      updateAuthentication(false)
     } catch (error) {
       console.log('error signing out: ', error)
     }

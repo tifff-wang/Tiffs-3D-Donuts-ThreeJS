@@ -1,5 +1,6 @@
 import DonutForm from './DonutForm'
 import DonutDetails from './DonutDetails'
+import { Link } from 'react-router-dom'
 import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { useLoader } from '@react-three/fiber'
 import { useRef, useState, useEffect } from 'react'
@@ -8,6 +9,7 @@ import { fetchBase, fetchGlaze } from '../api/apiClient.ts'
 import { useSearchParams } from 'react-router-dom'
 import SaveButton from './SaveButton'
 import Nav from './Nav'
+import { fetchAuthSession } from 'aws-amplify/auth'
 
 const defaultBase = {
   id: 1,
@@ -23,7 +25,6 @@ const defaultGlaze = {
 }
 
 function Interfaces(props) {
- 
   const heroRef = useRef(null)
   const detailRef = useRef(null)
   const { updateGlaze, updateBase, updateTexture } = props
@@ -33,6 +34,25 @@ function Interfaces(props) {
   const [withGold, setWithGold] = useState(false)
   const [coatMessage, setCoatMessage] = useState(false)
   const newTexture = useLoader(TextureLoader, 'gold.jpg')
+
+  const [isAuthenticated, setIsAuthenticated] = useState()
+
+  useEffect(() => {
+    checkAuthentication()
+  }, [])
+
+  async function checkAuthentication() {
+    try {
+      await fetchAuthSession()
+      setIsAuthenticated(true)
+    } catch (error) {
+      setIsAuthenticated(false)
+    }
+  }
+
+  function updateAuthentication(state) {
+    setIsAuthenticated(state)
+  }
 
   function changeBase(choosenBase) {
     if (withGold) {
@@ -99,14 +119,15 @@ function Interfaces(props) {
     })
   }
 
-  function handleLogin() {
-    
-  }
+  function handleLogin() {}
 
   return (
     <>
       <div ref={heroRef}>
-        <Nav />
+        <Nav
+          isAuthenticated={isAuthenticated}
+          updateAuthentication={updateAuthentication}
+        />
       </div>
       <div className="flex flex-col items-end w-screen ">
         <section
@@ -181,12 +202,14 @@ function Interfaces(props) {
             ) : (
               <div className="mt-20">
                 Love your donut?{' '}
-                <button
-                  onClick={handleLogin}
-                  className="text-red-500 hover:text-red-400"
-                >
-                  login
-                </button>{' '}
+                <Link to="/auth">
+                  <button
+                    onClick={handleLogin}
+                    className="text-red-500 hover:text-red-400"
+                  >
+                    login
+                  </button>{' '}
+                </Link>
                 and save it for later!
               </div>
             )}

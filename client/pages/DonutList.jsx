@@ -1,19 +1,33 @@
 import { useQuery } from '@tanstack/react-query'
 import DonutCard from '../components/DonutCard'
 import { fetchDonuts } from '../api/apiClient'
-import { Navigate } from 'react-router-dom'
 import { Player } from '@lottiefiles/react-lottie-player'
 import Nav from '../components/Nav'
+import { fetchAuthSession } from 'aws-amplify/auth'
+import { useState } from 'react'
+
 export default function DonutList() {
   const {
     data: donuts,
     isLoading,
     isError,
   } = useQuery(['donutList'], async () => {
-    return fetchDonuts()
+    try {
+      const session = await fetchAuthSession()
+      setIsAuthenticated(true)
+      const token = session.tokens.idToken.toString()
+      console.log(`token:${token}`)
+      return fetchDonuts({ token })
+    } catch {
+      setIsAuthenticated(false)
+    }
   })
 
-  if (!isAuthenticated) return <Navigate to={'/auth'} />
+  const [isAuthenticated, setIsAuthenticated] = useState()
+
+  function updateAuthentication(state) {
+    setIsAuthenticated(state)
+  }
 
   if (isError) {
     return <p>Something went wrong!</p>
@@ -33,7 +47,10 @@ export default function DonutList() {
 
   return (
     <>
-      <Nav />
+      <Nav
+        isAuthenticated={isAuthenticated}
+        updateAuthentication={updateAuthentication}
+      />
       <div className="relative">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-5xl font-extrabold leading-snug mt-32 mb-5">
