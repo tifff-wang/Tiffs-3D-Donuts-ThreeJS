@@ -4,7 +4,10 @@
 Tifff's Donuts is a delightful project that lets you design and customize your own adorable donuts. 
 Whether you're a donut enthusiast or just looking for a fun and creative way to pass the time, this project has got you covered.
 
-## Get Started
+## Visit the website
+[Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
+ 
+## Run the app
 1. Clone this repository
 2. Install dependencies `npm i`
 3. Run migrations & seeds `npm run knex migrate:latest; npm run knex migrate seed:run`
