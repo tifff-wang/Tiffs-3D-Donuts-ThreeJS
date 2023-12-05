@@ -1,0 +1,11 @@
+Model Information:
+* title:	Donut Cat!
+* source:	https://sketchfab.com/3d-models/donut-cat-3800caad4695418f9f60bfca87a85304
+* author:	Cresis (https://sketchfab.com/Cresis)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Donut Cat!" (https://sketchfab.com/3d-models/donut-cat-3800caad4695418f9f60bfca87a85304) by Cresis (https://sketchfab.com/Cresis) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
