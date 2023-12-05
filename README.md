@@ -10,7 +10,7 @@ Whether you're a donut enthusiast or just looking for a fun and creative way to 
 ## Run the app
 1. Clone this repository
 2. Install dependencies `npm i`
-3. Run migrations & seeds `npm run knex migrate:latest; npm run knex migrate seed:run`
+3. Run migrations & seeds `npm run knex migrate:latest; npm run knex seed:run`
 4. Play! `npm run dev`
 
 ## Tools Used
