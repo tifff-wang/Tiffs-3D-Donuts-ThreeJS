@@ -5,15 +5,15 @@
 Tiff's Donuts is a delightful project that lets you design and customize your own adorable donuts.
 Whether you're a donut enthusiast or just looking for a fun and creative way to pass the time, this project has got you covered.
 
+<img src="public/tiffs-donuts.gif" alt="drawing" width="600"/>
+
 ## Visit the website
 
-The project is hosted on Amazon EC2:
-
-### [Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
+The project is hosted on Amazon EC2: [Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
 
 Feel free to login to save and view the donuts that you've created and then eat them up!
 
-<img src="public/view-donuts-page.gif" alt="drawing" width="500"/>
+<img src="public/view-donuts-page.gif" alt="drawing" width="600"/>
 
 ## Tools Used
 
