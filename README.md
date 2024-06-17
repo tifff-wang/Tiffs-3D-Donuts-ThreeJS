@@ -9,11 +9,11 @@ Whether you're a donut enthusiast or just looking for a fun and creative way to 
 
 The project is hosted on Amazon EC2:
 
-[Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
+### [Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
 
-Feel free to login to save and view the donuts that they created and then eat them up!
+Feel free to login to save and view the donuts that you've created and then eat them up!
 
-<img src="public/view-donuts-page.gif" alt="drawing" width="400"/>
+<img src="public/view-donuts-page.gif" alt="drawing" width="500"/>
 
 ## Tools Used
 
