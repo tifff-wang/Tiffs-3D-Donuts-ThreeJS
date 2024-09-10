@@ -2,10 +2,12 @@ FROM node:18-alpine
 WORKDIR /app
 
 COPY ["package.json", "package-lock.json*", "./"]
-RUN npm ci
+RUN npm install 
 
 COPY . .
 
 ENV NODE_ENV=production
-RUN npm run build --if-present
-RUN npm prune --omit=dev
+
+EXPOSE 5173
+
+CMD [ "npm", "run", "dev" ]
