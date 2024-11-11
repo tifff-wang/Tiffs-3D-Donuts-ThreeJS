@@ -7,18 +7,14 @@ Whether you're a donut enthusiast or just looking for a fun and creative way to 
 
 <img src="public/tiffs-donuts.gif" alt="drawing" width="600"/>
 
+Users can log in to save and view the donuts that they've created and then eat them up!
+
+<img src="public/view-donuts-page.gif" alt="drawing" width="600"/>
+
 ## Technologies
 
 ![](https://img.shields.io/badge/Three.js-orange) ![](https://img.shields.io/badge/React_Three_Fiber-orange) ![](https://img.shields.io/badge/React-grey) ![](https://img.shields.io/badge/React_Router-grey) ![](https://img.shields.io/badge/AWS_Amplify-purple) ![](https://img.shields.io/badge/AWS_Cognito-purple)
 ![](https://img.shields.io/badge/TailwindCSS-blue)  ![](https://img.shields.io/badge/SuperAgent-Orange) ![](https://img.shields.io/badge/Vitest-yellow) ![](https://img.shields.io/badge/PlayWright-yellow)
-
-## Visit the website
-
-The project is hosted on Amazon EC2: [Click here and play!](http://ec2-3-27-201-205.ap-southeast-2.compute.amazonaws.com/)
-
-Feel free to login to save and view the donuts that you've created and then eat them up!
-
-<img src="public/view-donuts-page.gif" alt="drawing" width="600"/>
 
 ## Tools Used
 
